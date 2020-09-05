@@ -1,0 +1,9 @@
+.vscode/
+.envrc
+.python-version
+.mypy_cache
+__pycache__
+.vim/
+.lsp/
+.n-node-version
+.idea
