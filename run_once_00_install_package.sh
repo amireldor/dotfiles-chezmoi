@@ -19,6 +19,8 @@ curl https://pyenv.run | bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > /tmp/rustup.sh
 sh /tmp/rustup.sh -y # no prompt
 
+source $HOME/.cargo/env
+
 # neovim plugins
 nvim +PlugInstall +qa
 
