@@ -4,7 +4,7 @@ set -v
 
 sudo apt update
 
-sudo apt install \
+sudo apt install -y \
 	build-essential git \
 	neovim \
 	silversearcher-ag
