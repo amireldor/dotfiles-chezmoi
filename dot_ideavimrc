@@ -1,0 +1,7 @@
+let mapleader=" "
+set easymotion
+imap jh <esc>
+set clipboard+=unnamed
+set ic
+set relativenumber
+nmap s <leader><leader>
