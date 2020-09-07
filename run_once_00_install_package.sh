@@ -43,4 +43,7 @@ nvim +PlugInstall +qa
 # oh-my-zsh
 CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-chsh -s /bin/zsh
+WANTED_SHELL=/usr/bin/zsh
+if [ $SHELL != $WANTED_SHELL ]; then
+   chsh -s $WANTED_SHELL
+fi
