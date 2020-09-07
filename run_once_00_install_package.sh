@@ -24,9 +24,14 @@ sudo apt install -y \
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+## This is a bit of a DRY heresy, as it's in zshrc as well, but I want to install node here
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+nvm install --lts
 
 # pyenv
 curl https://pyenv.run | bash
+## TODO: install latest/lts python
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > /tmp/rustup.sh
