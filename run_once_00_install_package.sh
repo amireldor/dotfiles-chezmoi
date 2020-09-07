@@ -18,7 +18,7 @@ sudo add-apt-repository \
 sudo apt install -y \
 	build-essential git \
 	neovim code \
-	silversearcher-ag \
+	silversearcher-ag direnv \
 	docker-ce docker-ce-cli containerd.io \
 	zsh
 
