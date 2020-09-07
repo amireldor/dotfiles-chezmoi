@@ -103,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 
 set vi -o
 bindkey jh vi-cmd-mode
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 export PATH="/home/amir/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
