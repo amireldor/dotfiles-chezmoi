@@ -35,7 +35,7 @@ source $HOME/.cargo/env
 
 # some shell prompt
 curl -fsSL https://starship.rs/install.sh > /tmp/starship.sh
-bash /tmp/starship.sh -y
+bash /tmp/starship.sh -y --bin-dir=$HOME/bin
 
 # neovim plugins
 nvim +PlugInstall +qa
