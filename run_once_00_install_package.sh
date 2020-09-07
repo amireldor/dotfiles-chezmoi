@@ -43,6 +43,10 @@ nvim +PlugInstall +qa
 # oh-my-zsh
 CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# fzf
+[[ -d ~/.fzf ]] || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --key-bindings --completion --no-update-rc
+
 WANTED_SHELL=/usr/bin/zsh
 if [ $SHELL != $WANTED_SHELL ]; then
    chsh -s $WANTED_SHELL
