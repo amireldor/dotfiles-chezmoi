@@ -16,7 +16,7 @@ sudo add-apt-repository \
 
 # apt packages
 sudo apt install -y \
-	build-essential git \
+	build-essential git libssl-dev \
 	neovim code \
 	silversearcher-ag direnv \
 	docker-ce docker-ce-cli containerd.io \
