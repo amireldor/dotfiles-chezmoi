@@ -34,7 +34,8 @@ sh /tmp/rustup.sh -y # no prompt
 source $HOME/.cargo/env
 
 # some shell prompt
-curl -fsSL https://starship.rs/install.sh | bash
+curl -fsSL https://starship.rs/install.sh > /tmp/starship.sh
+bash /tmp/starship.sh -y
 
 # neovim plugins
 nvim +PlugInstall +qa
