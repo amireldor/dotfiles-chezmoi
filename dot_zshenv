@@ -1,5 +1,4 @@
 export EDITOR=nvim
-export N_PREFIX=~/.n
 export PATH="$HOME/bin:$HOME/.n/bin:$PATH"
 export GOROOT=$HOME/opt/go
 export GOPATH=$PATH:$GOROOT/bin

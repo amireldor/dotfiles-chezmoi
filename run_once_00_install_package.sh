@@ -2,6 +2,9 @@
 
 set -v
 
+# some of my vars
+source ./dot_zshenv
+
 # apt repository - vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
@@ -37,6 +40,9 @@ curl https://pyenv.run | bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > /tmp/rustup.sh
 sh /tmp/rustup.sh -y # no prompt
 source $HOME/.cargo/env
+
+# go
+curl https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
 
 # some shell prompt
 curl -fsSL https://starship.rs/install.sh > /tmp/starship.sh
