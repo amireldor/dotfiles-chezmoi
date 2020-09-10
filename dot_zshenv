@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export PATH="$HOME/bin:$HOME/.n/bin:$PATH"
 export GOROOT=$HOME/opt/go
-export GOPATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/dev/go
 export LEIN_USE_BOOTCLASSPATH=no
+export PATH="$HOME/bin:$GOPATH/bin:$PATH"
