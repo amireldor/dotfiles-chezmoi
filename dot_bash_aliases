@@ -1,0 +1,3 @@
+alias dokkufun="ssh dokku@fun.cesspool.games"
+alias tigs="tig status"
+alias chedit="chezmoi edit"
