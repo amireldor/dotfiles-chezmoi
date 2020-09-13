@@ -1,0 +1,77 @@
+#!/bin/bash
+
+
+function install {
+# some of my vars
+   source "{{ .chezmoi.sourceDir }}"/dot_zshenv
+
+# apt repository - vscode
+      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+      sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+      sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# apt repository - docker
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      sudo add-apt-repository \
+      "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) \
+      stable"
+
+# apt packages
+      sudo apt install -y \
+      build-essential git libssl-dev \
+      neovim code \
+      silversearcher-ag direnv \
+      docker-ce docker-ce-cli containerd.io \
+      zsh
+
+# nvm
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+## This is a bit of a DRY heresy, as it's in zshrc as well, but I want to install node here
+      export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+      nvm install --lts
+
+# pyenv
+	 curl https://pyenv.run | bash
+## TODO: install latest/lts python
+
+# rust
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > /tmp/rustup.sh
+	 sh /tmp/rustup.sh -y # no prompt
+	 source $HOME/.cargo/env
+
+# go
+	 curl https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
+
+# some shell prompt
+	 curl -fsSL https://starship.rs/install.sh > /tmp/starship.sh
+	 bash /tmp/starship.sh -y --bin-dir=$HOME/bin
+
+# neovim plugins
+	 nvim +PlugInstall +qa
+
+# oh-my-zsh
+	 CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# fzf
+	 [[ -d ~/.fzf ]] || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	 ~/.fzf/install --key-bindings --completion --no-update-rc
+
+	    WANTED_SHELL=/usr/bin/zsh
+	    if [ $SHELL != $WANTED_SHELL ]; then
+	       chsh -s $WANTED_SHELL
+		  fi
+}
+
+set -v
+
+trap die INT
+
+function die {
+echo "Cancelling install script :)"
+   exit 1
+}
+
+install
+
