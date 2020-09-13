@@ -1,5 +1,6 @@
 let mapleader=" "
 set easymotion
+set surround
 imap jh <esc>
 set clipboard+=unnamed
 set ic
