@@ -2,4 +2,4 @@ export EDITOR=nvim
 export GOROOT=$HOME/opt/go
 export GOPATH=$HOME/dev/go
 export LEIN_USE_BOOTCLASSPATH=no
-export PATH="$HOME/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
