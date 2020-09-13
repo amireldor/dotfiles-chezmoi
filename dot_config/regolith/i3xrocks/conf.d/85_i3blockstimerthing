@@ -1,0 +1,4 @@
+[i3blockstimerthing]
+command=/home/amir/dev/i3blockstimerthing/i3blockstimerthing.py
+interval=1
+I3BLOCKSTIMERTHING_FILE=/home/amir/.i3blockstimerthing
