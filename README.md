@@ -4,9 +4,11 @@
     export BINDIR=$HOME/bin
     curl -sfL https://git.io/chezmoi | sh
     
-    chezmoi init git@github.com:amireldor/dotfiles-chezmoi.git    
+    $HOME/bin/chezmoi init git@github.com:amireldor/dotfiles-chezmoi.git
 
     # add [data] with a git_email
-    chezmoi edit-config
-    chezmoi apply
+    $HOME/bin/chezmoi chezmoi edit-config
+    $HOME/bin/chezmoi chezmoi apply
+
+    # then you could use chezmoi regularly... (after re-login?)
 
