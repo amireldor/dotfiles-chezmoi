@@ -36,6 +36,11 @@ function install {
 # pyenv
 	 curl https://pyenv.run | bash
 ## TODO: install latest/lts python
+## dependecies for building python versions:
+## sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
+## libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+## xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+
 
 # rust
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > /tmp/rustup.sh
