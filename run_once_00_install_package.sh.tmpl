@@ -26,20 +26,20 @@ function install {
       zsh \
       gtk-redshift
 
-# nvm
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-## This is a bit of a DRY heresy, as it's in zshrc as well, but I want to install node here
-      export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-      nvm install --lts
 
-# pyenv
-	 curl https://pyenv.run | bash
-## TODO: install latest/lts python
-## dependecies for building python versions:
-## sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
-## libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-## xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+asdf plugin add python
+asdf plugin add nodejs
+
+asdf install python latest
+
+## gpg keys for node stuff, from asdf nodejs repo
+bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+asdf install nodejs latest
+
+# python poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 
 # rust
