@@ -29,14 +29,15 @@ function install {
 
 # asdf
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
-asdf plugin add python
-asdf plugin add nodejs
+
+$HOME/.asdf/bin/asdf plugin add python
+$HOME/.asdf/bin/asdf plugin add nodejs
 
 asdf install python latest
 
 ## gpg keys for node stuff, from asdf nodejs repo
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-asdf install nodejs latest
+$HOME/.asdf/bin/asdf install nodejs latest
 
 # python poetry
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
