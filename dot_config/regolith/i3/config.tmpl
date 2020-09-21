@@ -72,7 +72,7 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-bindsym $mod+Return exec /usr/bin/x-terminal-emulator
+bindsym $mod+Return exec /usr/bin/gnome-terminal
 
 ## Launch // Browser // <><Shift> Enter ##
 bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
@@ -191,6 +191,8 @@ bindsym $mod+Shift+t focus mode_toggle
 
 ## Modify // Window Layout Mode // <> t ##
 bindsym $mod+t layout toggle tabbed splith splitv
+
+bindsym $mod+y sticky toggle
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -544,4 +546,11 @@ bindsym $mod+F9 move workspace to output left
 bindsym $mod+F12 move workspace to output right
 
 bindsym $mod+grave workspace back_and_forth
+
+
+{{- if eq .chezmoi.hostname "amiros-blackbmw" }}
+exec --no-startup-id synclient VertScrollDelta=-111
+exec --no-startup-id synclient HorizScrollDelta=-111
+{{- end }}
+
 
