@@ -22,6 +22,7 @@ set nowritebackup
 set nowrap
 set nohls
 set cursorline
+set termguicolors
  
 if has('win32')
 	map <leader><leader>5 :e ~/AppData/Local/nvim/init.vim<cr>
